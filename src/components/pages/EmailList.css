@@ -1,0 +1,56 @@
+.email-list-container {
+  width: auto;
+  padding: 20px;
+  /* background-color: rgb(240, 238, 215);; */
+}
+
+.email-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.email-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+  
+  transition: all 0.3s ease;
+}
+
+.email-item:hover {
+  background-color: rgb(240, 238, 215);
+}
+
+.email-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  margin:0 2rem;
+}
+
+.sender-email,
+.email-subject,
+.email-time {
+  margin: 0 ;
+}
+
+.sender-email strong,
+.email-subject strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.email-time {
+  font-size: 0.8em;
+  color: #666;
+  text-align: right;
+  margin: 0 2rem;
+}
+
+.email-content {
+  margin: 0;
+  font-size: 0.9em;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 2rem;
+}
