@@ -1,6 +1,8 @@
 .email-sending-container {
     display: flex;
     flex-direction: column;
+    margin-left: 300px;
+    margin-top: 2%;
 }
 
 .input-field {

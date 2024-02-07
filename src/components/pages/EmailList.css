@@ -1,7 +1,9 @@
+
 .email-list-container {
-  width: auto;
+  max-width: calc(100vw - 300px);
   padding: 20px;
-  /* background-color: rgb(240, 238, 215);; */
+  margin-left: 300px;
+  /* background-color: #666; */
 }
 
 .email-list {
