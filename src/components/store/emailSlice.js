@@ -18,9 +18,14 @@ export const emailSlice = createSlice({
       );
       state.unreadCount -= 1;
     },
+    deleteEmail: (state, action) => {
+      state.emails = state.emails.filter(
+        (email) => email.id !== action.payload
+      );
+    },
   },
 });
 
-export const { fetchEmailsSuccess, markAsRead } = emailSlice.actions;
+export const { fetchEmailsSuccess, markAsRead ,deleteEmail} = emailSlice.actions;
 
 export default emailSlice.reducer;

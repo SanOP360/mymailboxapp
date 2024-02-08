@@ -44,6 +44,25 @@
   color: #333;
 }
 
+.delTime{
+  display: flex;
+  justify-content: space-between;
+  margin:0 2rem;
+  /* background-color: aqua; */
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.delEmailBtn{
+  background-color: transparent;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.delEmailBtn:hover{
+  background-color: rgba(255, 255, 255, 0.473);
+}
+
 .email-time {
   font-size: 0.8em;
   color: #666;
@@ -58,7 +77,7 @@
   line-height: 1.6;
   margin: 0 2rem;
 }
-/* Add this to your CSS file */
+
 .dot {
   width: 10px;
   height: 10px;
