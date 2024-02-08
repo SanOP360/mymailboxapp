@@ -33,7 +33,7 @@ const EmailSending = () => {
     const emailContent = editorRef.current.getEditor().getText();
     const myEmail = enteredEmail.replace(/[.@]/g, "");
 
-    // Get current date and time
+  
     const currentDate = new Date();
     const sentDate = currentDate.toDateString();
     const sentTime = currentDate.toLocaleTimeString();

@@ -74,10 +74,10 @@ const EmailList = () => {
             <div className="email-header">
               {renderDot(email)}
               <p className="sender-email">
-                Sender: <strong>{email.from}</strong>
+                From: <strong>{email.from}</strong>
               </p>
               <p className="email-subject">
-                Subject: <strong>{email.subject}</strong>
+                 <strong>{email.subject}</strong>
               </p>
             </div>
             <p className="email-content">{email.content}</p>

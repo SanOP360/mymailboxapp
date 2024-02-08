@@ -2,7 +2,7 @@
 
 .email-list-container {
   max-width: calc(100vw - 300px);
-  /* padding: 20px; */
+  
   margin-left: 300px;
 
   
@@ -16,12 +16,13 @@
 .email-item {
   border-bottom: 1px solid #e0e0e0;
   padding: 20px 0;
-  
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .email-item:hover {
-  background-color: rgb(240, 238, 215);
+  background-color: rgb(215, 215, 212);
+
 }
 
 .email-header {
@@ -32,10 +33,14 @@
   margin:0 2rem;
 }
 
-.sender-email,
-.email-subject,
-.email-time {
+.sender-email{
+  flex:2
+}
+.email-subject {
   margin: 0 ;
+  flex:1;
+  justify-content: start;
+   font-family: 'Montserrat', sans-serif;
 }
 
 .sender-email strong,
@@ -48,26 +53,34 @@
   display: flex;
   justify-content: space-between;
   margin:0 2rem;
-  /* background-color: aqua; */
+
   align-items: center;
   margin-top: 1rem;
 }
 
 .delEmailBtn{
   background-color: transparent;
-  font-size: 0.9em;
+  font-size: 1rem;
   cursor: pointer;
+  background-color: red;
+  color:white;
+  border-radius: 5px;
+  border:none;
+  
 }
 
 .delEmailBtn:hover{
-  background-color: rgba(255, 255, 255, 0.473);
+  background-color:rgba(238, 13, 13, 0.771);
+  color:rgba(255, 255, 255, 0.838);
+
 }
 
 .email-time {
   font-size: 0.8em;
-  color: #666;
+  color: #2b2a2a;
   text-align: right;
   margin: 0 2rem;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .email-content {
@@ -76,6 +89,7 @@
   color: #444;
   line-height: 1.6;
   margin: 0 2rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .dot {
