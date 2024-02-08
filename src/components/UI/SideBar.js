@@ -15,7 +15,7 @@ const Sidebar = () => {
     <aside className="sidebar">
       <ul>
         <li>
-          <Link to="/inbox">Inbox {unreadCount > 0 && `(${unreadCount})`}</Link> 
+          <Link to="/inbox">Drafts {unreadCount > 0 && `(${unreadCount})`}</Link> 
         </li>
         <li>
           <Link to="/sent">Sent</Link>

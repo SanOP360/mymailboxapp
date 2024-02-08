@@ -1,4 +1,4 @@
-// emailSlice.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 export const emailSlice = createSlice({
@@ -26,6 +26,7 @@ export const emailSlice = createSlice({
   },
 });
 
-export const { fetchEmailsSuccess, markAsRead ,deleteEmail} = emailSlice.actions;
+export const { fetchEmailsSuccess, markAsRead, deleteEmail } =
+  emailSlice.actions;
 
 export default emailSlice.reducer;

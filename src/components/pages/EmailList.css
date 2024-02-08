@@ -31,15 +31,17 @@
   align-items: center;
   margin-bottom: 5px;
   margin:0 2rem;
+  /* background-color:blue; */
 }
 
 .sender-email{
-  flex:2
+  flex:1;
+  font-size: 1.1rem;
 }
 .email-subject {
   margin: 0 ;
-  flex:1;
-  justify-content: start;
+  flex:2;
+  
    font-family: 'Montserrat', sans-serif;
 }
 

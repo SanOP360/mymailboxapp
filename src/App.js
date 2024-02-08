@@ -5,6 +5,8 @@ import EmailList from "./components/pages/EmailList";
 import Navbar from "./components/UI/Navbar";
 import Sidebar from "./components/UI/SideBar";
 import EmailDetails from "./components/pages/EmailDetail";
+import SentEmail from "./components/pages/sentEmail";
+import SentEmailDetails from "./components/pages/sentEmailDetails";
 function App() {
   return (
     <div>
@@ -15,7 +17,9 @@ function App() {
           <Route path="/" element={<AuthForm />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/inbox" element={<EmailList />} />
-          <Route path="/emails/:id" element={<EmailDetails />}/>
+          <Route path="/sent" element={<SentEmail />} />
+          <Route path="/emails/:id" element={<EmailDetails />} />
+          <Route path="/sentemails/:id" element={<SentEmailDetails />} />
         </Routes>
       </div>
     </div>

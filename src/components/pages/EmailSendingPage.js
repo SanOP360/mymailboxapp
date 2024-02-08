@@ -33,6 +33,8 @@ const EmailSending = () => {
     const emailContent = editorRef.current.getEditor().getText();
     const myEmail = enteredEmail.replace(/[.@]/g, "");
 
+    const sentEmail = SendersMail.replace(/[.@]/g, "");
+
   
     const currentDate = new Date();
     const sentDate = currentDate.toDateString();
@@ -40,7 +42,7 @@ const EmailSending = () => {
 
     try {
       await axios.post(
-        `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/${myEmail}.json`,
+        `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/drafts/${myEmail}.json`,
         {
           to: enteredEmail,
           subject: enteredSubject,
@@ -48,6 +50,20 @@ const EmailSending = () => {
           from: SendersMail,
           date: sentDate,
           time: sentTime,
+          
+        }
+      );
+
+      await axios.post(
+        `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/sent/${sentEmail}.json`,
+        {
+          to: enteredEmail,
+          subject: enteredSubject,
+          content: emailContent,
+          from: SendersMail,
+          date: sentDate,
+          time: sentTime,
+          read:true,
         }
       );
 

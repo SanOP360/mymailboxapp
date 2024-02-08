@@ -1,13 +1,12 @@
-// EmailDetails.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { markAsRead } from "../store/emailSlice";
-import { useNavigate } from "react-router-dom";
-import './EmailDetail.css'
 
-const EmailDetails = () => {
+import { useNavigate } from "react-router-dom";
+import "./EmailDetail.css";
+
+const SentEmailDetails = () => {
   const Email = useSelector((state) => state.auth.email);
   const { id } = useParams();
   const [email, setEmail] = useState(null);
@@ -18,17 +17,11 @@ const EmailDetails = () => {
   useEffect(() => {
     const fetchEmail = async () => {
       try {
-        await axios.patch(
-          `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/drafts/${myEmail}/${id}.json`,
-          { read: true }
-        );
         const response = await axios.get(
-          `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/drafts/${myEmail}/${id}.json`
+          `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/sent/${myEmail}/${id}.json`
         );
         if (response.status === 200) {
           setEmail(response.data);
-        
-          dispatch(markAsRead(id));
         } else {
           console.error("Failed to fetch email data:", response);
         }
@@ -46,14 +39,14 @@ const EmailDetails = () => {
 
   return (
     <div className="email-details-container">
-      <h3 className="emailSender">From: {email.from}</h3>
+      <h3 className="emailSender">To: {email.to}</h3>
       <h2 className="emailsubject">{email.subject}</h2>
       <p className="email-content">{email.content}</p>
-      <button className="backBtn" onClick={() => navigate("/inbox")}>
+      <button className="backBtn" onClick={() => navigate("/sent")}>
         Back
       </button>
     </div>
   );
 };
 
-export default EmailDetails;
+export default SentEmailDetails;

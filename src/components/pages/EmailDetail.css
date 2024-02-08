@@ -1,45 +1,57 @@
 .email-details-container {
   margin-left: 300px; 
   width: 60%;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9; /* Light gray background */
+  border: 1px solid #ccc; /* Light border */
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   min-height: 60vh;
 }
 
-.email-subject {
+.emailSender {
+  font-weight: bold;
   font-size: 1.5rem;
+  color: #333; /* Dark font color */
   margin-bottom: 10px;
 }
 
+.emailsubject {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222; /* Darker font color */
+  border-bottom: 1px solid #999; /* Lighter border color */
+  padding-bottom: 10px;
+}
+
 .email-content {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444; /* Slightly darker font color */
 }
 
 .loading {
   margin-left: 300px; 
-}
-.backBtn{
-  position: absolute; 
-  bottom: 50px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  background-color:transparent;
-  /* color: white; */
-  /* border: none; */
-  border-radius: 4px;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  
+  text-align: center; /* Center loading text */
+  font-size: 1.2rem;
+  color: #666; /* Lighter font color */
 }
 
-.backBtn:hover{
-  background-color:rgba(238, 236, 236, 0.493);
+.backBtn {
+  position: absolute; 
+  bottom: 20px; /* Adjusted button position */
+  left: 50%; 
+  transform: translateX(-50%); 
+  background-color: #007bff; /* Classic blue button color */
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px; 
+  font-size: 1.2rem;
+  color: #fff; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.backBtn:hover {
+  background-color: #0056b3; 
 }
