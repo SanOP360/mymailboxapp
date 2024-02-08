@@ -34,9 +34,21 @@ const EmailList = () => {
         console.error("Error fetching emails: ", error);
       }
     };
+    const fetchEmailsPeriodically = () => {
+    
+      fetchEmails();
 
-    fetchEmails();
+  
+      const intervalId = setInterval(fetchEmails, 2000);
+
+      
+      return () => clearInterval(intervalId);
+    };
+
+    fetchEmailsPeriodically(); 
   }, [dispatch, myEmail]);
+
+  
 
   const handleDelete = async (emailId,event) => {
      event.stopPropagation();
