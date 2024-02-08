@@ -6,7 +6,7 @@
 }
 
 .input-field {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     margin-bottom: 1rem;
     box-sizing: border-box;
@@ -22,11 +22,14 @@
 
 .editor-container  ReactQuill{
     min-height: 30vh;
+    width: 90%;
+
 }
 .ql-editor {
     min-height: 300px; 
     font-size: 1.5rem; 
     background-color: rgb(240, 238, 215);
+    width: 90%;
 
 }
 

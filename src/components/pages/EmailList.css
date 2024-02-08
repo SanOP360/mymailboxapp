@@ -1,9 +1,11 @@
 
+
 .email-list-container {
   max-width: calc(100vw - 300px);
-  padding: 20px;
+  /* padding: 20px; */
   margin-left: 300px;
-  /* background-color: #666; */
+
+  
 }
 
 .email-list {
@@ -55,4 +57,21 @@
   color: #444;
   line-height: 1.6;
   margin: 0 2rem;
+}
+/* Add this to your CSS file */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.dot.blue {
+  background-color: blue;
+}
+
+.dot.white {
+  background-color: white;
+  border: 1px solid #ccc; /* Add border for visibility */
 }

@@ -1,56 +1,26 @@
+// emailSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import {EditorState} from 'draft.js'
-
-const emailInitialState = {
-  inboxEmails: [],
-  sentEmails: [],
-  email: "",
-  subject: "",
-  body: EditorState.createEmpty(),
-};
 
 export const emailSlice = createSlice({
   name: "email",
-  initialState: emailInitialState,
+  initialState: {
+    emails: [],
+    unreadCount: 0,
+  },
   reducers: {
-    setInboxEmails: (state, action) => {
-      state.inboxEmails = action.payload;
+    fetchEmailsSuccess: (state, action) => {
+      state.emails = action.payload;
+      state.unreadCount = action.payload.filter((email) => !email.read).length;
     },
-    setSentEmails: (state, action) => {
-      state.sentEmails = action.payload;
-    },
-    setEmail: (state, action) => {
-      state.email = action.payload;
-    },
-    setEmailSubject: (state, action) => {
-      state.subject = action.payload;
-    },
-    setEmailBody: (state, action) => {
-      state.body = action.payload;
-    },
-    resetEmailComposition: (state) => {
-      state.subject = "";
-      state.body = EditorState.createEmpty();
-    },
-    deleteEmail: (state, action) => {
-      const emailIdToDelete = action.payload;
-      state.inboxEmails = state.inboxEmails.filter(
-        (email) => email.id !== emailIdToDelete
+    markAsRead: (state, action) => {
+      state.emails = state.emails.map((email) =>
+        email.id === action.payload ? { ...email, read: true } : email
       );
-      state.sentEmails = state.sentEmails.filter(
-        (email) => email.id !== emailIdToDelete
-      );
-    },
-    markEmailAsRead: (state, action) => {
-      const emailIdToMarkAsRead = action.payload;
-      state.inboxEmails = state.inboxEmails.map((email) => {
-        if (email.id === emailIdToMarkAsRead) {
-          return { ...email, read: true };
-        }
-        return email;
-      });
+      state.unreadCount -= 1;
     },
   },
 });
 
-export const emailActions = emailSlice.actions;
+export const { fetchEmailsSuccess, markAsRead } = emailSlice.actions;
+
+export default emailSlice.reducer;
