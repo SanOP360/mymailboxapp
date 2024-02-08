@@ -44,9 +44,11 @@ const EmailList = () => {
 
   const renderDot = email => {
     if (email.read) {
-      return <span className="dot blue"></span>;
-    } else {
       return <span className="dot white"></span>;
+      
+    } else {
+      
+      return <span className="dot blue"></span>;
     }
   };
 
