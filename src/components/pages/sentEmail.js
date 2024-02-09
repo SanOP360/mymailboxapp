@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchEmailsSuccess } from "../store/emailSlice";
+
 import { useNavigate } from "react-router-dom";
 import "./EmailList.css";
-import { deleteEmail } from "../store/emailSlice";
+
+import { fetchSentEmailsSuccess, deleteSentEmail } from "../store/sentSlice";
 
 const SentEmail = () => {
   const Email = useSelector((state) => state.auth.email);
-  const emails = useSelector((state) => state.email.emails);
+  const emails = useSelector((state) => state.sent.emails); // Update to use sent state
   const myEmail = Email.replace(/[.@]/g, "");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const SentEmail = () => {
               ...response.data[key],
             });
           }
-          dispatch(fetchEmailsSuccess(fetchedEmails));
+          dispatch(fetchSentEmailsSuccess(fetchedEmails)); 
         }
       } catch (error) {
         console.error("Error fetching emails: ", error);
@@ -43,7 +44,7 @@ const SentEmail = () => {
       await axios.delete(
         `https://mailboxapporiginal-default-rtdb.asia-southeast1.firebasedatabase.app/mailbox/sent/${myEmail}/${emailId}.json`
       );
-      dispatch(deleteEmail(emailId));
+      dispatch(deleteSentEmail(emailId)); // Update to use deleteSentEmail from sentSlice
     } catch (error) {
       console.error("Error deleting email:", error);
     }
@@ -52,8 +53,6 @@ const SentEmail = () => {
   const handleClick = (id) => {
     navigate(`/sentemails/${id}`);
   };
-
-  
 
   return (
     <div className="email-list-container">
@@ -65,7 +64,6 @@ const SentEmail = () => {
             onClick={() => handleClick(email.id)}
           >
             <div className="email-header">
-    
               <p className="sender-email">
                 To: <strong>{email.to}</strong>
               </p>
